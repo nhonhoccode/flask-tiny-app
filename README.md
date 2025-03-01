@@ -1,4 +1,3 @@
-```markdown
 # Tiny App Blog Documentation
 
 **Version:** 1.0  
