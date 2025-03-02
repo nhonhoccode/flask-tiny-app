@@ -1,7 +1,6 @@
 # Tiny App Blog Documentation
 
-**Version:** 1.0  
-**License:** MIT License  
+
 **Nhóm thực hiện:**  
 - Võ Trọng Nhơn - 22658441  
 - Trần Xuân Diện - 22650601
