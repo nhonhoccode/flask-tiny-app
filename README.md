@@ -1,10 +1,6 @@
 # Tiny App Blog Documentation
 
 
-**Nhóm thực hiện:**  
-- Võ Trọng Nhơn - 22658441  
-- Trần Xuân Diện - 22650601
-
 ## Table of Contents
 - [Thông tin cá nhân](#thông-tin-cá-nhân)
 - [Mô tả dự án](#mô-tả-dự-án)
@@ -85,4 +81,3 @@ Xem chi tiết dự án tại: [https://github.com/nhonhoccode/flask-tiny-app](h
 ---
 
 Cảm ơn bạn đã quan tâm đến dự án Tiny App Blog. Mọi ý kiến đóng góp đều được hoan nghênh để dự án ngày càng hoàn thiện hơn!
-```
