@@ -2,12 +2,11 @@ from django.contrib.auth import views as auth_views
 from django.urls import path
 
 from . import views
-from . import api_views
-path('', views.landing_page, name='home'),
+from . import api_views 
 
 urlpatterns = [
-    path('', views.landing_page, name='home'),
-    # path('', views.HomePageView.as_view(), name='home'),
+    path('', views.landing_page, name='landing_page'),
+    path('home/', views.HomePageView.as_view(), name='home'),
     path('blog/post/', views.BlogCreateView.as_view(), name='post'),
     path('blog/<int:pk>/', views.BlogDetailView.as_view(), name='blog_detail'),
     path('blog/update/<int:pk>/', views.BlogUpdateView.as_view(), name='blog_update'),
