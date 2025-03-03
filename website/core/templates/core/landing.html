@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Landing Page</title>
+    <style>
+        /* Reset margin, padding và box-sizing */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Thiết lập cho body */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            line-height: 1.6;
+            padding: 20px;
+        }
+
+        /* Định dạng cho header */
+        header {
+            background-color: #4CAF50;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+
+        /* Style cho container chứa nút đăng ký và đăng nhập */
+        .auth-buttons {
+            margin-top: 15px;
+        }
+
+        .auth-buttons a {
+            display: inline-block;
+            margin: 0 5px;
+            background-color: #fff;
+            color: #4CAF50;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background 0.3s ease, color 0.3s ease;
+        }
+
+        .auth-buttons a:hover {
+            background-color: #45a049;
+            color: #fff;
+        }
+
+        /* Định dạng cho main */
+        main {
+            background: #fff;
+            margin: 20px auto;
+            padding: 20px;
+            max-width: 800px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Định dạng cho footer */
+        footer {
+            text-align: center;
+            padding: 10px;
+            font-size: 0.9em;
+            color: #777;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Chào mừng đến với Blog của Tôi</h1>
+        {% comment %} <div class="auth-buttons">
+            <a href="{% url 'register' %}">Đăng ký</a>
+            <a href="{% url 'login' %}">Đăng nhập</a>
+        </div> {% endcomment %}
+    </header>
+    <main>
+        <p>Đây là trang Landing Page giới thiệu về blog của bạn. Hãy thêm nội dung, hình ảnh và thông tin chi tiết để thu hút khách truy cập.</p>
+    </main>
+    <footer>
+        <p>&copy; 2025 Blog của Tôi. All rights reserved.</p>
+    </footer>
+</body>
+</html>
