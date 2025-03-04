@@ -175,3 +175,41 @@ class BlogDeleteView(LoginRequiredMixin, UserPassesTestMixin, SuccessMessageMixi
         context = super().get_context_data(**kwargs)
         context['title'] = 'Delete Blog'
         return context
+    
+from django.shortcuts import render, redirect
+from django.contrib.auth.decorators import login_required
+from django.contrib import messages
+from .models import BlogModel
+
+@login_required
+def blog_list(request):
+    # Lấy danh sách bài viết của user hiện tại theo thứ tự mới nhất
+    posts = BlogModel.objects.filter(author=request.user).order_by('-created_at')
+    return render(request, 'core/blog_list.html', {'posts': posts})
+
+
+@login_required
+def delete_blog_posts(request):
+    # Chỉ chấp nhận yêu cầu POST
+    if request.method != 'POST':
+        messages.error(request, "Yêu cầu không hợp lệ!")
+        return redirect('blog_list')
+    
+    # Lấy danh sách id bài viết được chọn từ form
+    post_ids = request.POST.getlist('post_ids')
+    if not post_ids:
+        messages.warning(request, "Không có bài viết nào được chọn!")
+        return redirect('blog_list')
+    
+    # Lọc các bài viết thuộc về user hiện tại có id trong danh sách
+    posts = BlogModel.objects.filter(id__in=post_ids, author=request.user)
+    count = posts.count()
+    
+    if count:
+        posts.delete()
+        messages.success(request, f"Đã xóa {count} bài viết thành công!")
+    else:
+        messages.warning(request, "Không tìm thấy bài viết nào cần xóa hoặc bạn không có quyền xóa.")
+    
+    return redirect('blog_list')
+

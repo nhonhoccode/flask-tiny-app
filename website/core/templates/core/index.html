@@ -4,6 +4,15 @@
 <div class="container mt-4">
     <h2 class="mb-4 text-center">Blogs</h2>
     
+    <!-- Nút quản lý bài viết của user (chỉ hiển thị khi đã đăng nhập) -->
+    {% if user.is_authenticated %}
+    <div class="mb-4 text-end">
+      <a href="{% url 'blog_list' %}" class="btn btn-success">
+        Quản lý bài viết của tôi
+      </a>
+    </div>
+    {% endif %}
+
     <!-- Sort Buttons -->
     <div class="mb-4">
         <div class="d-flex justify-content-between align-items-center">
@@ -23,7 +32,9 @@
         {% for blog in blogs %}
             <div class="list-group-item list-group-item-action">
                 <h4 class="mb-2">
-                    <a href="{% url 'blog_detail' blog.pk %}" class="text-decoration-none text-dark">{{ blog.title }}</a>
+                    <a href="{% url 'blog_detail' blog.pk %}" class="text-decoration-none text-dark">
+                        {{ blog.title }}
+                    </a>
                 </h4>
                 <div class="mb-1">
                     <small class="text-muted">
@@ -34,6 +45,18 @@
                         {% endif %}
                         &middot; {{ blog.created_at|date:"F d, Y" }}
                     </small>
+                    
+                    <!-- Nếu blog này do user hiện tại tạo, hiển thị nút Sửa/Xóa -->
+                    {% if user.is_authenticated and user == blog.author %}
+                        <span class="float-end">
+                            <a href="{% url 'blog_update' blog.pk %}" class="btn btn-sm btn-outline-secondary me-2">
+                                Sửa
+                            </a>
+                            <a href="{% url 'blog_delete' blog.pk %}" class="btn btn-sm btn-outline-danger">
+                                Xóa
+                            </a>
+                        </span>
+                    {% endif %}
                 </div>
                 <div class="mb-1">
                     <small class="text-muted">
