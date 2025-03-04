@@ -27,7 +27,7 @@ SECRET_KEY = 'django-insecure-c7k(2^f%vzp*u1=w@2w+d6u$sz(l=^3c2_4b2gwn1#5b*c4ze1
 DEBUG = True
 
 ALLOWED_HOSTS = []
-
+AUTH_USER_MODEL = 'core.CustomUser'  # Adjust this to your actual app and model name
 
 # Application definition
 
@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'core.apps.CoreConfig',
 ]
 
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -56,6 +57,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'core.middleware.BlockedUserMiddleware',
 ]
 
 ROOT_URLCONF = 'website.urls'
@@ -144,6 +146,7 @@ CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 
 # Auth
+
 
 LOGIN_URL = 'login'
 

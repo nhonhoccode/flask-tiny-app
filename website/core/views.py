@@ -10,10 +10,11 @@ from django.db.models import Count
 from django.db.models import Q
 from django.views import View
 
-from .forms import CommentForm
-from .models import BlogModel
-from django.shortcuts import render
+from .forms import CustomUserCreationForm, CommentForm
+from .models import BlogModel, SiteConfiguration
 
+from django.shortcuts import render
+from .forms import CustomUserCreationForm
 def landing_page(request):
     """Hiển thị trang Landing Page"""
     return render(request, 'core/landing.html')
@@ -33,16 +34,26 @@ class RegisterView(View):
     template_name = 'core/form.html'
 
     def get(self, request):
-        form = UserCreationForm()
-        return render(request, self.template_name, {'form': form, 'form_title': 'Register', 'form_btn': 'Register', 'title': 'Register'})
+        form = CustomUserCreationForm()
+        return render(request, self.template_name, {
+            'form': form,
+            'form_title': 'Register',
+            'form_btn': 'Register',
+            'title': 'Register'
+        })
 
     def post(self, request):
-        form = UserCreationForm(request.POST)
+        form = CustomUserCreationForm(request.POST)
         if form.is_valid():
             user = form.save()
             login(request, user)
             return redirect('home')
-        return render(request, self.template_name, {'form': form, 'form_title': 'Register', 'form_btn': 'Register', 'title': 'Register'})
+        return render(request, self.template_name, {
+            'form': form,
+            'form_title': 'Register',
+            'form_btn': 'Register',
+            'title': 'Register'
+        })
 
 
 class HomePageView(ListView):
@@ -81,6 +92,12 @@ class HomePageView(ListView):
             queryset = queryset.order_by(*ordering)
 
         return queryset
+    
+    def get_paginate_by(self, queryset):
+        config = SiteConfiguration.objects.first()
+        if config and config.paginate_by:
+            return config.paginate_by
+        return self.paginate_by
 
 
 class BlogDetailView(DetailView):

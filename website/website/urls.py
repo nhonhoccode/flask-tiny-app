@@ -19,8 +19,11 @@ from django.urls import path, include
 from django.contrib import admin
 from django.conf import settings
 
+from core import views
+from . import admin_views
 
 urlpatterns = [
+    path('admin/user-management/', admin_views.user_management, name='user_management'),
     path('admin/', admin.site.urls),
     path('', include('core.urls')),
 ]

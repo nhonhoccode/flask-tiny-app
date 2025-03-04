@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Quản lý người dùng</title>
+    <style>
+        /* Thiết lập cơ bản cho body */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f2f5;
+            margin: 0;
+            padding: 20px;
+            color: #333;
+        }
+        /* Tiêu đề chính */
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #009879;
+        }
+        /* Style cho thông báo (messages) */
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 10px 0;
+            text-align: center;
+        }
+        ul li {
+            background-color: #ffdddd;
+            color: #d8000c;
+            margin: 5px auto;
+            padding: 10px 15px;
+            width: fit-content;
+            border-radius: 5px;
+        }
+        /* Style cho bảng */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: #fff;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+        thead {
+            background-color: #009879;
+            color: #ffffff;
+        }
+        thead th {
+            padding: 12px 15px;
+            text-align: left;
+        }
+        tbody tr {
+            border-bottom: 1px solid #dddddd;
+        }
+        tbody tr:nth-of-type(even) {
+            background-color: #f3f3f3;
+        }
+        tbody tr:last-of-type {
+            border-bottom: 2px solid #009879;
+        }
+        tbody td {
+            padding: 12px 15px;
+        }
+        /* Style cho form và button */
+        form {
+            display: inline-block;
+        }
+        button {
+            background-color: #009879;
+            color: #fff;
+            border: none;
+            padding: 8px 12px;
+            border-radius: 5px;
+            font-size: 0.9em;
+            cursor: pointer;
+            margin: 2px;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #007f67;
+        }
+    </style>
+</head>
+<body>
+    <h1>Quản lý người dùng</h1>
+    
+    {% if messages %}
+        <ul>
+            {% for message in messages %}
+                <li>{{ message }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+    
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Tên đăng nhập</th>
+                <th>Email</th>
+                <th>Đã khóa</th>
+                <th>Hành động</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for user in users %}
+            <tr>
+                <td>{{ user.id }}</td>
+                <td>{{ user.username }}</td>
+                <td>{{ user.email }}</td>
+                <td>{{ user.is_blocked }}</td>
+                <td>
+                    {% if not user.is_blocked %}
+                    <form method="post">
+                        {% csrf_token %}
+                        <input type="hidden" name="user_id" value="{{ user.id }}">
+                        <input type="hidden" name="action" value="block">
+                        <button type="submit">Khóa</button>
+                    </form>
+                    {% else %}
+                    <form method="post">
+                        {% csrf_token %}
+                        <input type="hidden" name="user_id" value="{{ user.id }}">
+                        <input type="hidden" name="action" value="unblock">
+                        <button type="submit">Mở khóa</button>
+                    </form>
+                    {% endif %}
+                    <form method="post">
+                        {% csrf_token %}
+                        <input type="hidden" name="user_id" value="{{ user.id }}">
+                        <input type="hidden" name="action" value="reset_password">
+                        <button type="submit">Reset mật khẩu</button>
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

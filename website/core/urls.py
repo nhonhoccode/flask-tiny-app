@@ -1,9 +1,10 @@
 from django.contrib.auth import views as auth_views
 from django.urls import path
 
-from . import views
-from . import api_views 
+from core import views
 
+from . import api_views 
+from website import admin_views
 urlpatterns = [
     path('', views.landing_page, name='landing_page'),
     path('home/', views.HomePageView.as_view(), name='home'),
@@ -11,7 +12,7 @@ urlpatterns = [
     path('blog/<int:pk>/', views.BlogDetailView.as_view(), name='blog_detail'),
     path('blog/update/<int:pk>/', views.BlogUpdateView.as_view(), name='blog_update'),
     path('blog/delete/<int:pk>/', views.BlogDeleteView.as_view(), name='blog_delete'),
-
+    path('admin/user-management/', admin_views.user_management, name='user_management'),
     # API
     path('api/like-toggle/', api_views.LikeToggleAPIView.as_view(), name='like-toggle'),
     path('api/blog/<int:blog_id>/comment/', api_views.CommentCreateAPI.as_view(), name='create_comment_api'),
