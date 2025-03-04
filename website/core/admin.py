@@ -38,7 +38,7 @@ admin.site.register(CommentModel)
 admin.site.register(LikeModel)
 
 
-# from .models import BlogModel, CommentModel, LikeModel, SiteConfiguration
+from .models import BlogModel, CommentModel, LikeModel, SiteConfiguration
 
 
-# admin.site.register(SiteConfiguration)
+admin.site.register(SiteConfiguration)
