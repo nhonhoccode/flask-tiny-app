@@ -1,6 +1,5 @@
 # Tiny App Blog Documentation
 
-
 ## Table of Contents
 - [Thông tin cá nhân](#thông-tin-cá-nhân)
 - [Mô tả dự án](#mô-tả-dự-án)
@@ -71,13 +70,16 @@ Dự án được phát triển nhằm rèn luyện kỹ năng lập trình web 
    python manage.py runserver
    ```
 
-8. **Truy cập ứng dụng:**
+8. **Chạy script tự động thiết lập môi trường:**
+   Nếu bạn muốn thiết lập môi trường nhanh chóng và chạy web, có thể chạy file `scripts.sh`:
+   ```bash
+   bash scripts.sh
+   ```
+
+9. **Truy cập ứng dụng:**
    Mở trình duyệt và truy cập địa chỉ: [http://localhost:8000](http://localhost:8000)
 
 ## Link project
 
 Xem chi tiết dự án tại: [https://github.com/nhonhoccode/flask-tiny-app](https://github.com/nhonhoccode/flask-tiny-app)
 
----
-
-Cảm ơn bạn đã quan tâm đến dự án Tiny App Blog. Mọi ý kiến đóng góp đều được hoan nghênh để dự án ngày càng hoàn thiện hơn!
