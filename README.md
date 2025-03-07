@@ -1,85 +1,170 @@
-# Tiny App Blog Documentation
+Dưới đây là bản cập nhật README.md hoàn chỉnh hơn, logic mạch lạc hơn, thêm icon đẹp mắt và cập nhật chi tiết việc sử dụng Docker (có sẵn Dockerfile và docker-compose.yml):
 
-## Table of Contents
-- [Thông tin cá nhân](#thông-tin-cá-nhân)
-- [Mô tả dự án](#mô-tả-dự-án)
-- [Hướng dẫn cài đặt & chạy](#hướng-dẫn-cài-đặt--chạy)
-- [Link project](#link-project)
+---
 
-## Thông tin cá nhân
+# 🚀 Tiny App Blog Documentation
 
-- **Võ Trọng Nhơn** - 22658441  
-- **Trần Xuân Diện** - 22650601  
+---
 
-## Mô tả dự án
+## 📖 Mục lục
+- [👤 Thông tin cá nhân](#-thông-tin-cá-nhân)
+- [💡 Mô tả dự án](#-mô-tả-dự-án)
+- [🛠️ Hướng dẫn cài đặt & chạy](#️-hướng-dẫn-cài-đặt--chạy)
+- [🐳 Hướng dẫn triển khai với Docker](#-hướng-dẫn-triển-khai-với-docker)
+- [🌐 Link triển khai project](#-link-triển-khai-project)
 
-Tiny App Blog là một ứng dụng blog được xây dựng bằng Django, cung cấp các chức năng cơ bản của một blog hiện đại.  
-Các tính năng chính bao gồm:
-- **Đăng ký & Đăng nhập:** Quản lý người dùng thông qua hệ thống xác thực của Django.
-- **Quản lý bài viết:** Cho phép tạo, chỉnh sửa, xoá và hiển thị bài viết.
-- **Tìm kiếm:** Hỗ trợ tìm kiếm bài viết theo tiêu đề hoặc nội dung.
-- **Giao diện thân thiện:** Tích hợp các template để hiển thị nội dung một cách trực quan và dễ sử dụng.
+---
 
-Dự án được phát triển nhằm rèn luyện kỹ năng lập trình web với Django và làm nền tảng cho các ứng dụng blog phức tạp hơn trong tương lai.
+## 👤 Thông tin cá nhân
 
-## Hướng dẫn cài đặt & chạy
+- **Võ Trọng Nhơn** - `22658441`  
+- **Trần Xuân Diện** - `22650601`
 
-### Yêu cầu hệ thống
-- Python 3.x  
-- pip
+---
 
-### Các bước cài đặt
+## 💡 Mô tả dự án
 
-1. **Clone repository từ GitHub:**
-   ```bash
-   git clone https://github.com/nhonhoccode/flask-tiny-app.git
-   ```
+**Tiny App Blog** là một ứng dụng web blog hoàn chỉnh được xây dựng bằng Django. Dự án hướng đến việc cung cấp các chức năng quản lý nội dung cơ bản của blog và đồng thời phát triển thêm một số tính năng quản trị người dùng nâng cao, đáp ứng các yêu cầu thực tế của một ứng dụng web hiện đại.
 
-2. **Chuyển đến thư mục dự án:**
-   ```bash
-   cd flask-tiny-app
-   ```
+### 🔥 Các tính năng chính:
 
-3. **Tạo môi trường ảo (virtual environment):**
-   ```bash
-   python -m venv env
-   ```
+- ✅ **Đăng ký & Đăng nhập** người dùng.
+- 📄 **Quản lý bài viết** cá nhân (tạo, sửa, xóa).
+- 🔎 **Tìm kiếm bài viết** dễ dàng, nhanh chóng.
+- 🎨 **Giao diện thân thiện, trực quan**.
 
-4. **Kích hoạt môi trường ảo:**
-   - Trên Windows:
-     ```bash
-     .\env\Scripts\activate
-     ```
-   - Trên macOS và Linux:
-     ```bash
-     source env/bin/activate
-     ```
+### 🚧 Lộ trình phát triển theo các phiên bản:
 
-5. **Cài đặt các thư viện phụ thuộc:**
-   ```bash
-   pip install -r requirements.txt
-   ```
+- 🌟 **Version 2**:  
+  - Tính năng đăng nhập/đăng ký nâng cao, bảo mật hơn.
 
-6. **Thực hiện migrate database:**
-   ```bash
-   python manage.py migrate
-   ```
+- 🌟 **Version 3**:  
+  - Thêm trang **Admin** quản lý người dùng:
+    - Cho phép Admin **khóa (block)** tài khoản và **reset mật khẩu**.
+    - Thông báo rõ ràng khi tài khoản bị khóa: _"Tài khoản của bạn đã bị khóa"_.
 
-7. **Chạy server phát triển:**
-   ```bash
-   python manage.py runserver
-   ```
+- 🌟 **Version 4**:  
+  - User quản lý bài viết hiệu quả hơn:
+    - Cho phép user **xóa đồng thời nhiều bài viết** cùng lúc.
 
-8. **Chạy script tự động thiết lập môi trường:**
-   Nếu bạn muốn thiết lập môi trường nhanh chóng và chạy web, có thể chạy file `scripts.sh`:
-   ```bash
-   bash scripts.sh
-   ```
+- 🌟 **Version 5**:  
+  - Triển khai tính năng **phân trang (pagination)** cho bài viết, hiển thị số lượng bài viết giới hạn trên mỗi trang.
 
-9. **Truy cập ứng dụng:**
-   Mở trình duyệt và truy cập địa chỉ: [http://localhost:8000](http://localhost:8000)
+---
 
-## Link project
+## 🛠️ Hướng dẫn cài đặt & chạy (không Docker)
 
-Xem chi tiết dự án tại: [https://github.com/nhonhoccode/flask-tiny-app](https://github.com/nhonhoccode/flask-tiny-app)
+### ⚙️ Yêu cầu hệ thống
 
+- 🐍 Python 3.x  
+- 📦 pip (Package Installer)
+
+### 📌 Các bước cài đặt:
+
+1. **Clone repository từ GitHub**
+```bash
+git clone https://github.com/nhonhoccode/flask-tiny-app.git
+cd flask-tiny-app
+```
+
+2. **Tạo và kích hoạt môi trường ảo**
+```bash
+python -m venv env
+```
+
+- Windows:
+```bash
+.\env\Scripts\activate
+```
+
+- macOS/Linux:
+```bash
+source env/bin/activate
+```
+
+3. **Cài đặt các package cần thiết**
+```bash
+pip install -r requirements.txt
+```
+
+4. **Khởi tạo database**
+```bash
+python manage.py migrate
+```
+
+5. **Chạy ứng dụng**
+```bash
+python manage.py runserver
+```
+
+6. **Truy cập website**
+- 🌐 Mở trình duyệt và truy cập [http://localhost:8000](http://localhost:8000)
+
+---
+
+## 🐳 Hướng dẫn triển khai với Docker
+
+> 🔹 Dự án cung cấp sẵn **Dockerfile** và **docker-compose.yml** giúp bạn dễ dàng triển khai.
+
+### 📌 Cách 1: Chạy với Dockerfile trực tiếp
+
+1. **Clone repository**
+```bash
+git clone https://github.com/nhonhoccode/flask-tiny-app.git
+cd flask-tiny-app
+```
+
+2. **Build Docker image**
+```bash
+docker build -t tiny-app-blog .
+```
+
+3. **Chạy container**
+```bash
+docker run -d -p 8000:8000 tiny-app-blog
+```
+
+4. **Truy cập ứng dụng**
+- 🌐 [http://localhost:8000](http://localhost:8000)
+
+---
+
+### 📌 Cách 2: Chạy nhanh với Docker Compose (khuyên dùng)
+
+1. **Clone repository**
+```bash
+git clone https://github.com/nhonhoccode/flask-tiny-app.git
+cd flask-tiny-app
+```
+
+2. **Build và khởi chạy tất cả container**
+```bash
+docker-compose up --build -d
+```
+
+3. **Kiểm tra trạng thái các container**
+```bash
+docker-compose ps
+```
+
+4. **Truy cập ứng dụng**
+- 🌐 [http://localhost:8000](http://localhost:8000)
+
+5. **Dừng và xoá các container**
+```bash
+docker-compose down
+```
+
+---
+
+## 🌐 Link triển khai project
+
+- 💻 **GitHub Repository**:  
+[https://github.com/nhonhoccode/flask-tiny-app](https://github.com/nhonhoccode/flask-tiny-app)
+
+- 🚀 **Link triển khai thực tế**:  
+_(coming soon)_
+
+---
+
+🙌 **Cảm ơn bạn đã quan tâm đến dự án Tiny App Blog!**  
