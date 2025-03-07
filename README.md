@@ -1,7 +1,8 @@
-Dưới đây là bản cập nhật README.md hoàn chỉnh hơn, logic mạch lạc hơn, thêm icon đẹp mắt và cập nhật chi tiết việc sử dụng Docker (có sẵn Dockerfile và docker-compose.yml):
-
----
-
+[]: # "Title: Tiny App Blog Documentation"
+[]: # "Description: This is the documentation for Tiny App Blog project, built with Flask."
+[]: # "Author : Maximus"
+[]: # "Created: 2025 Mar 4"
+[]: # "Modified: 2025 Mar 7"
 # 🚀 Tiny App Blog Documentation
 
 ---
