@@ -7,7 +7,7 @@
 
 ### ℹ️ **Author & Metadata**
 
-| Author           | Maximus                |
+| Author           | Maximus - Dien         |
 |------------------|------------------------|
 | Created Date     | 2025-03-04             |
 | Last Modified    | 2025-03-07             |
