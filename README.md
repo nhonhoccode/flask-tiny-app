@@ -1,9 +1,17 @@
-[]: # "Title: Tiny App Blog Documentation"
-[]: # "Description: This is the documentation for Tiny App Blog project, built with Flask."
-[]: # "Author : Maximus"
-[]: # "Created: 2025 Mar 4"
-[]: # "Modified: 2025 Mar 7"
 # 🚀 Tiny App Blog Documentation
+
+> **Description:**  
+> This is the documentation for **Tiny App Blog**, a web application built using Django.
+
+---
+
+### ℹ️ **Author & Metadata**
+
+| Author           | Maximus                |
+|------------------|------------------------|
+| Created Date     | 2025-03-04             |
+| Last Modified    | 2025-03-07             |
+
 
 ---
 
